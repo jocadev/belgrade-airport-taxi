@@ -1,0 +1,19 @@
+@import '~src/sass/styles.scss';
+.footer{
+
+	.footer-top{
+		@include full-width();
+
+		> div{
+			display:inline-block;
+			text-align: center;
+		}
+	}
+
+
+	.footer-bottom{
+		@include full-width();
+		text-align: center;
+		border-top: 1px solid $border-color;
+	}
+}
