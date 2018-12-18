@@ -8,7 +8,7 @@ import { RideServicesComponent } from './pages/ride-services/ride-services.compo
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent }
+  { path: 'contact', component: ContactComponent },
   { path: 'ride-services', component: RideServicesComponent }
 ];
 
