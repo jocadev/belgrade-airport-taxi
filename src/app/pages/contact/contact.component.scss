@@ -1,5 +1,6 @@
+@import '~src/sass/styles';
 .contact-form{
-	
+
 	.contact-title{
 		text-align: center;
 	}
@@ -8,4 +9,22 @@
 		text-align: center;
 	}
 
+	.message-data{
+		border: 1px solid $border-color;
+		padding: 30px;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
+		> span {
+			display: block;
+			font-size: 20px;
+			font-weight: 800;
+			font-family: $default-text-font;
+			color: $default-text-color;
+
+			.user-name-data, .user-email-data, .user-phone-data{
+				font-weight: 500;
+			}
+		}
+	}
 }
