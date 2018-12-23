@@ -1,3 +1,48 @@
-<p>
-  ride-services works!
-</p>
+<div class="bg-airport-taxi ride-services">
+  <div class="ride-services-holder">
+    <img src="../src/assets/uploads/rideHome.jpg"/>
+  </div>
+  <div class="container">
+    <div class="bg-airport-taxi ride-services-holder">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <div class="bg-airport-taxi top-destinations">
+            <div class="col-lg-3 col-md-6 col-sm-6 top-destination" *ngFor="let destination of destinations">
+                  <div class="top-destination-holder">
+                    <div class="top-destinatio-inner">
+                      <div class="top-destination-image">
+                        <img src="../src/assets/uploads/{{destination.name}}.jpg"/>
+                      </div>
+                      <div class="top-destination-info">
+                        <span class="destination-name">{{destination.name}}</span>
+                        <span class="destination-price"><span class="destination-price-data">${{destination.price}}</span></span>
+                        <p class="destination-description">{{destination.description}}</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="form-group col-lg-12 col-md-12">
+                        <div class="book-btn-holder">
+                          <button class="btn btn-success book-btn">Book Now</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="bg-airport-taxt-separator"></div>
+            <div class="col-lg-4 col-md-4 col-sm-12 pricing" *ngFor="let price of pricings">
+              <div class="pricing-holder">
+                <div class="pricing-inner">
+                  <div class="pricing-info">
+                    <span class="pricing-name">{{price.type}}</span>
+                    <span class="pricing-price">{{price.price}}<span class="destination-price-data">$ per km</span></span>
+                    <span class="pricing-description">{{price.description}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

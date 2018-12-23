@@ -1,0 +1,118 @@
+@import '~src/sass/styles';
+  .ride-services{
+      .ride-services-holder{
+        margin-top: -48px;
+        img{
+          width: 100%;
+        }
+      }
+
+    .top-destination{
+      display: inline-block;
+      text-align: center;
+      margin: 150px 0 0;
+
+
+      .top-destination-holder{
+        //margin: 0 10px;
+        padding: 15px;
+        border: 1px solid $border-color;
+      }
+
+
+      .top-destination-info{
+        font-size: 24px;
+        letter-spacing: .2em;
+        font-weight: 600;
+        color: #000;
+        position: relative;
+
+        .destination-name{
+          color: $default-text-color;
+          font-size: 24px;
+          line-height: 33px;
+          font-weight: 700;
+          letter-spacing: 1.3px;
+          text-transform: uppercase;
+          margin: 30px 0;
+        }
+
+        .destination-price{
+          width: 0;
+          height: 0;
+          border-bottom: 70px solid $border-color ;
+          border-right: 70px solid transparent;
+          position: absolute;
+          top: -70px;
+          left: 0;
+
+          .destination-price-data{
+            position: absolute;
+            top: 40px;
+            color: #fff;
+            letter-spacing: 0;
+          }
+        }
+
+        > *{
+          display: inline-block;
+        }
+      }
+
+      .top-destination-image{
+        img{
+          width: 100%;
+        }
+      }
+
+      .book-btn-holder{
+        .book-btn{
+          background-color: $border-color;
+          border: none;
+        }
+      }
+
+    }
+
+    .bg-airport-taxt-separator{
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: transparent;
+      margin: 50px 0;
+    }
+
+    .pricing {
+      display: inline-block;
+    }
+
+    .pricing-holder {
+      margin-bottom: 100px;
+
+      .pricing-price, .pricing-name {
+        font-size: 20px;
+        line-height: 1em;
+        color: $default-text-color;
+        position: relative;
+        font-weight: 600;
+        font-family: $additional-font;
+      }
+
+      .pricing-name {
+        text-transform: uppercase;
+      }
+
+      .pricing-price {
+        font-size: 15px;
+        font-style: italic;
+        color: #35cfdd;
+        float: right;
+      }
+
+      .pricing-description {
+        display: block;
+        color: $border-color;
+        margin: 10px 0;
+      }
+    }
+  }
