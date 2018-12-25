@@ -1,11 +1,15 @@
 @import '~src/sass/styles';
   .ride-services{
-      .ride-services-holder{
+      .ride-services-image-holder{
         margin-top: -48px;
         img{
           width: 100%;
         }
       }
+
+    agm-map {
+      height: 300px;
+    }
 
     .top-destination{
       display: inline-block;
@@ -114,5 +118,14 @@
         color: $border-color;
         margin: 10px 0;
       }
+    }
+    .bg-taxi-booking-text{
+      padding: 0 15px 30px;
+      color: #6e6d6d;
+      font-size: 18px;
+      line-height: 25px;
+      font-weight: 600;
+      letter-spacing: 0;
+      font-family: 'Rubik',sans-serif;
     }
   }

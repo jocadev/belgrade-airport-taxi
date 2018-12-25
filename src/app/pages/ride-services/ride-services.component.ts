@@ -8,6 +8,15 @@ import { Pricing } from './pricing';
   styleUrls: ['./ride-services.component.scss']
 })
 export class RideServicesComponent implements OnInit {
+  firstName: string;
+  lastName: string;
+  userEmail: string;
+  userPhone: number;
+  pickUp: string;
+  bringMe: string;
+
+  lat = 51.678418;
+  lng = 7.809007;
 
   destinations = [
     new Destination(1, 49, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ' +
@@ -28,6 +37,15 @@ export class RideServicesComponent implements OnInit {
       new Pricing(3, 3.99, 'holiday', 'Lorem ipsum dolor sit amet, consectetur adip iscing elit. ' +
           'Etiam fermentum nulla ac tincidunt malesuada. Sed volutpat semper elit quis pharetra.')
   ];
+
+  checkRequest() {
+
+  }
+
+  bookTopDestination() {
+
+  }
+
   constructor() { }
 
   ngOnInit() {
