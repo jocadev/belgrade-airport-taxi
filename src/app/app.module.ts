@@ -7,6 +7,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -21,4 +22,5 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
