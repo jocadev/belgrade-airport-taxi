@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Passenger} from '../passenger';
 
 @Component({
   selector: 'app-contact',
@@ -6,22 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent implements OnInit {
-
-firstName: string;
-lastName: string;
-userEmail: string;
-userPhone: number;
-textMessage: string;
-showMessagePanel: boolean;
+        public passenger: Passenger;
 
     showMessage() {
-        if (this.firstName !== '' || this.firstName !== '') {
-            this.showMessagePanel = true;
+        if (this.passenger.firstName !== '' || this.passenger.firstName !== '') {
+            this.passenger.showMessagePanel = true;
         }
-        this.showMessagePanel = true;
+        this.passenger.showMessagePanel = true;
     }
 
-  constructor() { }
+  constructor() {
+      this.passenger = new Passenger();
+      this.passenger.firstName = "Joca" ;
+  }
 
   ngOnInit() {
   }

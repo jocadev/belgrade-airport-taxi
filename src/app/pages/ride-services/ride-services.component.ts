@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Destination } from './destination';
 import { Pricing } from './pricing';
+import { Passenger} from '../passenger';
 
 @Component({
   selector: 'app-ride-services',
@@ -8,16 +9,9 @@ import { Pricing } from './pricing';
   styleUrls: ['./ride-services.component.scss']
 })
 export class RideServicesComponent implements OnInit {
-  firstName: string;
-  lastName: string;
-  userEmail: string;
-  userPhone: number;
-  pickUp: string;
-  bringMe: string;
-
   lat = 51.678418;
   lng = 7.809007;
-
+  public passenger: Passenger;
   destinations = [
     new Destination(1, 49, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ' +
         'posuere cubilia Curaee sovray plugne ultrices posuere.', 'Zlatibor' ),
@@ -46,7 +40,9 @@ export class RideServicesComponent implements OnInit {
 
   }
 
-  constructor() { }
+  constructor() {
+    this.passenger = new Passenger();
+  }
 
   ngOnInit() {
   }
