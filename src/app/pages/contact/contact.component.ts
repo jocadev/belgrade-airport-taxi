@@ -13,12 +13,11 @@ export class ContactComponent implements OnInit {
         if (this.passenger.firstName !== '' || this.passenger.firstName !== '') {
             this.passenger.showMessagePanel = true;
         }
-        this.passenger.showMessagePanel = true;
+        this.passenger.showMessagePanel = false;
     }
 
   constructor() {
       this.passenger = new Passenger();
-      this.passenger.firstName = "Joca" ;
   }
 
   ngOnInit() {

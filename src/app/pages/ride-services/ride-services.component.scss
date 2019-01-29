@@ -14,8 +14,6 @@
     .top-destination{
       display: inline-block;
       text-align: center;
-      margin: 150px 0 0;
-
 
       .top-destination-holder{
         //margin: 0 10px;
@@ -127,5 +125,10 @@
       font-weight: 600;
       letter-spacing: 0;
       font-family: 'Rubik',sans-serif;
+    }
+    #booking_form{
+      .form-group{
+          text-align: left;
+        }
     }
   }

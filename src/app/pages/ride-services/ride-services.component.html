@@ -3,12 +3,13 @@
     <img src="../src/assets/uploads/rideHome.jpg"/>
   </div>
   <div class="container">
+    <div class="bg-airport-taxt-separator"></div>
     <div class="bg-airport-taxi ride-services-holder">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <div class="bg-airport-taxi top-destinations">
-            <div class="col-lg-3 col-md-6 col-sm-6 top-destination" *ngFor="let destination of destinations">
-                  <div class="top-destination-holder">
+            <div class="col-lg-3 col-md-6 col-sm-6 top-destination" *ngFor="let destination of destination">
+                  <div class="top-destination-holder" *ngIf="!bookDestination">
                     <div class="top-destinatio-inner">
                       <div class="top-destination-image">
                         <img src="../src/assets/uploads/{{destination.name}}.jpg"/>
@@ -22,11 +23,43 @@
                     <div class="row">
                       <div class="form-group col-lg-12 col-md-12">
                         <div class="book-btn-holder">
-                          <button class="btn btn-success book-btn" (click)="bookTopDestination()">Book Now</button>
+                          <button class="btn btn-success book-btn" (click)="bookTopDestination(destination.name)">Book Now</button>
                         </div>
                       </div>
                     </div>
                   </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 top-destination" *ngIf="bookDestination">
+              <div id="booking_form" class="bg-airport-taxi contact-form">
+                <div class="row"><span class="bg-taxi-booking-text booking-form">Book your ride to {{bookDestinationName}} </span></div>
+                <div class="row">
+                  <div class="form-group col-lg-6 col-md-6 first-name-group">
+                    <label><i class="fa fa-user" aria-hidden="true"></i> First Name</label>
+                    <input type="text" name="name" [(ngModel)]="passenger.firstName" class="form-control first-name" placeholder="Enter First Name">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 last-name-group">
+                    <label><i class="fa fa-user-o" aria-hidden="true"></i> Last Name</label>
+                    <input type="text" name="name" [(ngModel)]="passenger.lastName" class="form-control last-name" placeholder="Enter Last Name">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-6 col-md-6 email-group">
+                    <label><i class="fa fa-envelope" aria-hidden="true"></i> Email</label>
+                    <input type="email" name="email" [(ngModel)]="passenger.userEmail" class="form-control email-field" placeholder="Enter Email">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 phone-group">
+                    <label><i class="fa fa-phone" aria-hidden="true"></i> Phone</label>
+                    <input type="text" name="phone" [(ngModel)]="passenger.userPhone" class="form-control phone-field" placeholder="Enter Phone">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-lg-12 col-md-12">
+                    <div class="submit-btn-holder">
+                      <button class="btn btn-success" (click)="checkRequest()">Send Request</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="bg-airport-taxt-separator"></div>
             <div class="col-lg-4 col-md-4 col-sm-12 pricing" *ngFor="let price of pricings">

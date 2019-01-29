@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Destination } from './destination';
 import { Pricing } from './pricing';
 import { Passenger} from '../passenger';
+import { AirportService } from '../../airport.service';
 
 @Component({
   selector: 'app-ride-services',
@@ -11,17 +12,10 @@ import { Passenger} from '../passenger';
 export class RideServicesComponent implements OnInit {
   lat = 51.678418;
   lng = 7.809007;
-  public passenger: Passenger;
-  destinations = [
-    new Destination(1, 49, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ' +
-        'posuere cubilia Curaee sovray plugne ultrices posuere.', 'Zlatibor' ),
-    new Destination(2, 59, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices ' +
-        'posuere cubilia Curaee sovray plugne ultrices posuere.', 'Kopaonik' ),
-    new Destination(2, 29, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices' +
-        ' posuere cubilia Curaee sovray plugne ultrices posuere.', 'Novi Sad' ),
-    new Destination(2, 39, 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices' +
-        ' posuere cubilia Curaee sovray plugne ultrices posuere.', 'Nis' ),
-  ];
+  passenger: Passenger;
+  bookDestination: boolean;
+  bookDestinationName: string;
+  destination: Destination[];
 
   pricings = [
       new Pricing(1, 1.99, 'classic', 'Lorem ipsum dolor sit amet, consectetur adip iscing elit. ' +
@@ -31,20 +25,25 @@ export class RideServicesComponent implements OnInit {
       new Pricing(3, 3.99, 'holiday', 'Lorem ipsum dolor sit amet, consectetur adip iscing elit. ' +
           'Etiam fermentum nulla ac tincidunt malesuada. Sed volutpat semper elit quis pharetra.')
   ];
-
-  checkRequest() {
-
+  getDestinations(): void {
+   this.airportService.getDestinations()
+     .subscribe(a => this.destination = a);
+  }
+  checkRequest( ) {
+    this.bookDestination = false;
   }
 
-  bookTopDestination() {
-
+  bookTopDestination( bookDestination) {
+    this.bookDestination = true;
+    this.bookDestinationName = bookDestination;
   }
 
-  constructor() {
+  constructor(private airportService: AirportService) {
     this.passenger = new Passenger();
   }
 
   ngOnInit() {
+    this.getDestinations();
   }
 
 }
