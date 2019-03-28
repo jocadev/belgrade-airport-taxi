@@ -3,6 +3,8 @@ import { Destination } from './destination';
 import { Pricing } from './pricing';
 import { Passenger} from '../passenger';
 import { AirportService } from '../../airport.service';
+import { SaveMessageService } from '../../save-message.service';
+import {b} from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-ride-services',
@@ -13,10 +15,11 @@ export class RideServicesComponent implements OnInit {
   lat = 51.678418;
   lng = 7.809007;
   passenger: Passenger;
+  potentialPassenger: Passenger;
   bookDestination: boolean;
   bookDestinationName: string;
+  bookDestinationDetails: string;
   destination: Destination[];
-
   pricings = [
       new Pricing(1, 1.99, 'classic', 'Lorem ipsum dolor sit amet, consectetur adip iscing elit. ' +
           'Etiam fermentum nulla ac tincidunt malesuada. Sed volutpat semper elit quis pharetra.'),
@@ -29,17 +32,36 @@ export class RideServicesComponent implements OnInit {
    this.airportService.getDestinations()
      .subscribe(a => this.destination = a);
   }
-  checkRequest( ) {
+
+  bookRide(firstName, lastName, userEmail, userPhone, bookDestinationName) {
+    let message: string;
+    message = '';
+    message = message.concat('User: ', firstName, lastName, ' with email:', userEmail, ' wants to book ride to: ', bookDestinationName );
+    this.saveMessageService.sendMessage(message);
     this.bookDestination = false;
   }
 
-  bookTopDestination( bookDestination) {
-    this.bookDestination = true;
-    this.bookDestinationName = bookDestination;
+  cancelMessage() {
+    this.bookDestination = false;
   }
 
-  constructor(private airportService: AirportService) {
+  checkRequest(firstName, lastName, userEmail, userPhone, pickUp, bringMe) {
+    let message: string;
+    message = '';
+    message = message.concat('User: ', firstName, lastName, ' with email:', userEmail, ' wants to book ride from: ', pickUp, ' to: ', bringMe );
+    this.bookDestination = false;
+    this.saveMessageService.sendMessage(message);
+}
+
+  bookTopDestination( bookDestination, details) {
+    this.bookDestination = true;
+    this.bookDestinationName = bookDestination;
+    this.bookDestinationDetails = details;
+  }
+
+  constructor(private airportService: AirportService, private saveMessageService: SaveMessageService) {
     this.passenger = new Passenger();
+    this.potentialPassenger = new Passenger();
   }
 
   ngOnInit() {

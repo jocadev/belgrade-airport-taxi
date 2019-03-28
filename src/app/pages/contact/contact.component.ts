@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Passenger} from '../passenger';
+import { SaveMessageService } from '../../save-message.service';
 
 @Component({
   selector: 'app-contact',
