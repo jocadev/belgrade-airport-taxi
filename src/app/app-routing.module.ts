@@ -6,10 +6,12 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { RideServicesComponent } from './pages/ride-services/ride-services.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'ride-services', component: RideServicesComponent }
+   { path: 'home', component: HomeComponent },
+   { path: 'ride-services', component: RideServicesComponent },
+   { path: 'about', component: AboutComponent },
+   { path: 'contact', component: ContactComponent },
+   { path: '', pathMatch: 'full', redirectTo: '/ride-services' },
+   { path: '**', pathMatch: 'full', redirectTo: '/ride-services' },
 ];
 
 @NgModule({

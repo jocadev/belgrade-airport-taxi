@@ -6,7 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
+  status = false;
+  clickEvent() {
+    this.status = !this.status;
+  }
   constructor() { }
 
   ngOnInit() {
